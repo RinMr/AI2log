@@ -1,0 +1,142 @@
+body, html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  touch-action: manipulation;
+}
+
+.full-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 0;
+  position: relative;
+  background-image: url(photo/ホーム背景.png);
+  background-size: cover;
+}
+
+.home {
+  position: fixed;
+  display: inline-block;
+  top: 8%;
+  right: 88%;
+}
+
+.home span {
+  pointer-events: none;
+  z-index: 10;
+}
+      .probability {
+          font-size: 200%;
+          position: relative;
+          display: inline-block;
+          font-weight: bold;
+          padding: 10px 10px 10px 10px;
+          text-decoration: none;
+          color: black;
+          background: wheat;
+          transition: .5s;
+          position: fixed;
+          border-style: solid;
+          border-width: 5px;
+          border-color: black;
+          margin-bottom: 30%;
+}
+
+.select-picture {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  max-width: 480px; /* 最大幅を設定 */
+  max-height: 480px; /* 最大高さを設定 */
+  padding: 0; /* 画像の余白を削除 */
+  color: black;
+  transition: 0.5s;
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 10px;
+  border-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -20px;
+  overflow: hidden; /* コンテンツの表示を許可 */
+  box-sizing: border-box; /* 枠やパディングをサイズに含める */
+}
+
+.select-picture img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover; /* アスペクト比を維持しながらコンテナに収める */
+}
+
+.boxtext {
+  position: fixed;
+  font-size: 15px;
+  border: double 5px rgb(0, 0, 0);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  width: 300px;
+  height: 500px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 80%;
+  top: 15%;
+}
+
+.related-images {
+  display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      position: relative;
+      padding: 40px 20px 40px 20px;
+      text-decoration: none;
+      color: black;
+      background: none;
+      transition: .5s;
+      position: fixed;
+      border-style: solid;
+      border-width: 5px;
+      border-color: black;
+      top: 75%;
+      width: 80%;
+      left: 10%;
+      box-sizing: border-box;
+  }
+
+.related-images img {
+  max-width: 150px;
+  margin: 0 5px; /* 画像の間隔を調整 */
+}
+
+.preview-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview-img img {
+  max-width: calc(100% - 10px); /* 枠線を考慮 */
+  max-height: calc(100% - 10px); /* 枠線を考慮 */
+  object-fit: contain; /* 画像を枠内に収める */
+  border-radius: 5px;
+}

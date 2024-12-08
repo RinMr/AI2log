@@ -1,0 +1,245 @@
+/* 共通スタイル */
+body, html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  touch-action: manipulation;
+}
+
+#animatedElement {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; /* 画面全体の幅 */
+  height: 100vh; /* 画面全体の高さ */
+  background-color: rgb(246, 252, 163, 0.5); /* 画面全体に色をつける */
+  display: flex;
+  justify-content: center; /* 横方向に中央揃え */
+  align-items: center; /* 縦方向に中央揃え */
+  opacity: 1;
+  transition: opacity 1.5s, transform 0.5s;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+#animatedElement img {
+  max-width: 100%;  /* 画像が画面サイズに合わせてリサイズ */
+  max-height: 100%;  /* 画像が画面サイズに合わせてリサイズ */
+  object-fit: contain; /* 画像が縦横比を維持して収まるように */
+}
+
+.full-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 0;
+  position: relative;
+  background-image: url(photo/ホーム背景.png);
+  background-size: cover;
+}
+
+/* h2 のスタイル
+.full-page h2 {
+  position: absolute;
+  top: 0; 
+  left: 50%; 
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 1rem 2rem;
+  border: 6px double #000;
+  background-color: white; 
+}
+*/
+
+/* 表示時のアニメーション */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* テキストのスタイル */
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  text-align: center;
+  color: white;
+}
+
+/* アニメーション */
+.anim-box.fadeout.is-animated {
+  animation: fadeOut 1.0s cubic-bezier(0.8, 1, 0.68, 1) forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fadeOut {
+  100% {
+      opacity: 0;
+  }
+  0% {
+      opacity: 1;
+  }
+}
+
+.select {
+/*   font-size: 500%;*/
+  display: inline-block;
+  padding: 205px;
+  color: black;
+  transition: .5s;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.select input {
+  display: none;
+}
+
+.select span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 48px;
+  font-family: Arial, sans-serif;
+  pointer-events: none; /* クリックを無効化 */
+  z-index: 10; /* プレビュー画像の下に配置されないよう調整 */
+}
+
+.decision{
+  font-size: 200%;
+  display: inline-block;
+  font-weight: bold;
+  padding: 50px 50px 50px 50px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
+  transition: .5s;
+  position: fixed;
+  top: 70%;
+  right: 20%;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(0, 0, 0);
+  border-bottom-left-radius: 70px;
+  border-top-right-radius: 70px;
+  }
+
+.decision:hover {
+  background: #adc8ff;
+}  
+  .decision input {
+  display: none;
+}  
+
+.cancellation {
+  font-size: 200%;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 50px 50px 50px 50px;
+  text-decoration: none;
+  color: black;
+  background: rgb(214, 141, 6);
+  transition: .5s;
+  position: fixed;
+  top: 70%;
+  right: 70%;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  border-bottom-left-radius: 70px;
+  border-top-right-radius: 70px;
+}
+
+.cancellation:hover {
+  background: rgb(158, 158, 158);
+}
+
+.cancellation input {
+  display: none;
+}
+
+.history {
+  font-size: 200%;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.300);
+  transition: 0.5s;
+  position: fixed;
+  top: 79%;
+  right: 42%;
+}
+
+#hoverImage {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease; /* フェード効果 */
+}
+
+.translation {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 55%;
+  z-index: 2;
+}
+  
+.translation img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.history:hover .translation {
+  display: block;
+}
+
+#hoverImage {
+  transition: opacity 0.3s ease; /* フェード効果 */
+}
+
+.preview-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/*プレビュー画像の大きさ*/
+.preview-img img {
+  left: -50%;
+  max-width: 480px;
+  max-height: 480px;
+}
+
+
+@media screen and (max-width: 10000px) {
+  .preview-img {
+  width: auto;
+  }
+}

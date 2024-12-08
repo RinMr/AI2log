@@ -1,0 +1,37 @@
+{
+    "tabnine.experimentalAutoImports": true,
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": ""
+    ,
+    "python.testing.pytestArgs": [
+        " --extension-pkg-whitelist=cv2"
+    ],
+    
+    "liveServer.settings.donotShowInfoMsg": true,
+        "terminal.integrated.defaultProfile.windows": "Anaconda PS Prompt",
+        "terminal.integrated.profiles.windows": {
+            "Anaconda PS Prompt":{
+                "source": "PowerShell",
+                "args": [
+                    "-ExecutionPolicy",
+                    "ByPass",
+                    "-NoExit",
+                    "-Command", 
+                    "C:\\anaconda3\\shell\\condabin\\conda-hook.ps1"
+                ],
+                "icon": "terminal-powershell",
+                "color": "terminal.ansiGreen",
+            }
+        },
+        "redhat.telemetry.enabled": true,
+        "json.schemas": [
+            
+            
+
+        ],
+        "python.analysis.extraPaths": ["C:\\Users\\223204\\AppData\\Local\\anaconda3\\envs\\pythonAIv4\\Lib\\site-packages"
+],
+"workbench.settings.applyToAllProfiles": [
+
+]
+
+}

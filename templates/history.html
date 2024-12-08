@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='history.css') }}">
+    <title>履歴</title>
+</head>
+<body>
+  <div class="full-page">
+
+    <div class="history-container">
+      {% for entry in history[:4] %}  <!-- 最新の4件のみ表示 -->
+      <div class="history-entry" onclick="showModal('{{ loop.index }}')">
+        <div class="boxpersecond">
+          <div>{{ loop.index }}. {{ entry.message }}</div>
+        </div>
+
+        <!-- boxtext と modal-class を横並びにするために flex を使用 -->
+        <div class="boxtext-and-modal">
+          <div class="boxtext">
+            <p>
+              {% set max_prob = entry.probs | max %}
+              {% set max_label = entry.labels[entry.probs.index(max_prob)] %}
+              {{ max_label }}: {{ "%.2f"|format(max_prob) }}% <!-- 最も確率の高いラベルと確率 -->
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <img src="{{ url_for('uploaded_file', filename=entry.image_path) }}" alt="履歴画像" style="max-width: 200px;">
+        </div>
+      </div>
+      <!-- モーダル: 詳細確率表示 -->
+      <div id="modal-{{ loop.index }}" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('{{ loop.index }}')">&times;</span>
+          <h3>詳細確率</h3>
+          <p>
+            {% for label, prob in (entry.labels | zip(entry.probs) | sort(attribute=1, reverse=True)) %}
+            {{ label }}: {{ "%.2f"|format(prob) }}%<br> <!-- 確率で降順ソート -->
+            {% endfor %}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="home-button">
+        <a href="{{ url_for('show_old_history') }}" class="home">
+          <span>過去の履歴を見る</span>
+        </a>
+        <a href="{{ url_for('upload_file') }}" class="home">
+          <span>画像の選択に戻る</span>
+        </a>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='history.js') }}"></script>
+</body>
+</html>

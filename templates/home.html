@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>画像をアップロード</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <div id="animatedElement" class="anim-box">
+    <img src="{{ url_for('static', filename='photo/title.png') }}" alt="Title-Image">
+</div>
+
+    <div class="full-page">
+        <form method="POST" action="{{ url_for('upload_file') }}" enctype="multipart/form-data" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="parent">
+                <label class="select">
+                    <input type="file" name="file">
+                    <span>✙</span>
+                    <div class="preview-img"></div>
+                </label>
+            </div>
+            <label class="decision">
+                <input type="submit" id="submitBtn" value="アップロード" style="margin-top: 10px;" disabled>
+                <span>決定</span>
+            </label>
+
+            <label class="cancellation">
+                <input type="reset" id="clearbtn" value="選択キャンセル" onclick="clearFile(event)" style="display: none;">
+                <span>取消</span>
+            </label>
+
+            <label class="history">
+                <img src="{{ url_for('static', filename='photo/履歴.png') }}" id="hoverImage" alt="履歴">
+                <span class="translation">
+                    <a href="{{ url_for('show_history') }}">
+                        <img src="{{ url_for('static', filename='photo/肉球2.png') }}" alt="肉球">
+                    </a>
+                </span>
+            </label>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='home.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+global history_log, old_history_log
+history_log.append({
+    'labels': all_labels.tolist(),
+    'probs': all_probs.tolist(),
+    'message': message,
+    'image_path': os.path.basename(image_path)
+})
+
+if len(history_log) > MAX_HISTORY_SIZE:
+    old_history_log.append(history_log.pop(0))
+
+    # related_images_base64 と有効な画像パスをペアで返す
+return all_labels, all_probs, img, message, related_images, emotion_details
